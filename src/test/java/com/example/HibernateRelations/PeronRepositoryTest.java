@@ -47,5 +47,19 @@ class PeronRepositoryTest {
          assertThat(adres.isPresent()).isTrue();
 
   }
+  @Test
+  public void should(){
+      //given
+      Address address = new Address("Strzelista","Ciechocinek","65-211","3");
+      Address address1 = new Address("Franciszkańska","Ciechocinek","65-221","6");
+      Person person = new Person("Paweł","Sad",37,address);
+      Person person1 = new Person("Mariusz","Gad",29,address1);
+
+
+      //when
+
+      //then
+
+  }
 
 }

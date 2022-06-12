@@ -20,9 +20,6 @@ public class Person {
         this.address = address;
     }
 
-    public Address getAddress() {
-        return address;
-    }
 
     public Long getId() {
         return id;

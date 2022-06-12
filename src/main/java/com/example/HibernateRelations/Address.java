@@ -1,9 +1,7 @@
 package com.example.HibernateRelations;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
+import java.util.Set;
 
 @Entity
 public class Address {
@@ -13,6 +11,9 @@ public class Address {
     public Long id;
     public String street;
     public String city;
+
+    @OneToMany
+    private Set<Person> persons;
 
     public String getStreet() {
         return street;
