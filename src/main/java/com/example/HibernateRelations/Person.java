@@ -1,18 +1,25 @@
 package com.example.HibernateRelations;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 
 @Entity
 public class Person {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
+
     private Long id;
     private String firstName;
     private String lastName;
     private int age;
+    @OneToOne
+    private Address address;
+
+    public Person(String firstName, String lastName, int age, Address address) {
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.age = age;
+        this.address = address;
+    }
 
     public Long getId() {
         return id;

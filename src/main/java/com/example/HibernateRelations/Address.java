@@ -48,6 +48,13 @@ public class Address {
     public String postalCode;
     public String houseNr;
 
+    public Address(String street, String city, String postalCode, String houseNr) {
+        this.street = street;
+        this.city = city;
+        this.postalCode = postalCode;
+        this.houseNr = houseNr;
+    }
+
     public Address() {
     }
 
