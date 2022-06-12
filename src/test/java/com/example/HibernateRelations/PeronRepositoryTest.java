@@ -15,7 +15,8 @@ import static org.assertj.core.api.Assertions.assertThat;
 class PeronRepositoryTest {
     @Autowired
     PeronRepository personRepository;
-
+    @Autowired
+    AddressRepository addressRepository;
     public void init(){
         personRepository.save(new Person("Krzysztof", "Telefon",30,new Address("Zielona","Zakopane","32-987","3")));
         personRepository.save(new Person("Zbigniew", "Komórka",30,new Address("Błękitna","Gdańsk","12-123","9")));
@@ -26,9 +27,9 @@ class PeronRepositoryTest {
         //given
         init();
         //when
-        List<Person> personWithAddress = personRepository.getAddNewAddress(new Address("Zółta","Katowice","32-133","87"));
-        //then
-        assertThat(personWithAddress.size()).isEqualTo(3);
+        assertThat(personRepository.findAll().size()).isEqualTo(2);
+        assertThat(addressRepository.findAll().size()).isEqualTo(2);
+
     }
 
 }

@@ -6,12 +6,11 @@ import javax.persistence.*;
 public class Person {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-
     private Long id;
     private String firstName;
     private String lastName;
     private int age;
-    @OneToOne
+    @OneToOne (cascade = {CascadeType.PERSIST, CascadeType.MERGE})
     private Address address;
 
     public Person(String firstName, String lastName, int age, Address address) {
