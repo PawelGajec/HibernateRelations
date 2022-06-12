@@ -7,6 +7,7 @@ import org.springframework.boot.test.context.SpringBootTest;
 import javax.transaction.Transactional;
 
 import java.util.List;
+import java.util.Optional;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
@@ -32,13 +33,18 @@ class PeronRepositoryTest {
 
     }
 
-  @Test
-  public void (){
+     @Test
+     public void changeNameOfStreet (){
       //given
+         Address address1 =new Address("Kraków", "Wietrzna", "31-209","10");
+         Person person = new Person("Zbigniew", "Wichura",39,address1);
+         Person operation = personRepository.save(person);
 
       //when
-
+         operation.getAddress().setStreet("Huraganowa");
+         Optional<Address> adres = addressRepository.findOneByStreet("Huraganowa");
       //then
+         assertThat(adres.isPresent()).isTrue();
 
   }
 
